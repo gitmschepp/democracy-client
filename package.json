@@ -1,7 +1,10 @@
 {
   "name": "democracyclient",
+  "author": "Demokratie Deutschland",
+  "description": "Demokratie Deutschland",
   "version": "0.0.1",
   "private": true,
+  "main": "electron-starter.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
@@ -9,9 +12,15 @@
     "start:android": "react-native run-android",
     "start:web": "react-scripts start",
     "build:web": "react-scripts build",
-    "eject:web": "react-scripts eject"
+    "eject:web": "react-scripts eject",
+    "start:electron": "electron .",
+    "start:desktop":
+      "cross-env ELECTRON_START_URL=http://localhost:3000 electron .",
+    "dist":
+      "cross-env NODE_ENV=production node scripts/build/desktop.js && build -mwl"
   },
   "dependencies": {
+    "electron-debug": "^1.4.0",
     "react": "16.0.0",
     "react-dom": "^16.2.0",
     "react-native": "0.50.4",
@@ -21,11 +30,26 @@
   "devDependencies": {
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
+    "cross-env": "^5.1.1",
+    "devtron": "^1.4.0",
+    "electron": "^1.7.9",
+    "electron-builder": "^19.47.1",
     "jest": "21.2.1",
     "react-native-cli": "^2.0.1",
     "react-test-renderer": "16.0.0"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "build": {
+    "appId": "de.democracy-deutschland",
+    "mac": {
+      "category": "your.app.category.type",
+      "target": "dmg"
+    },
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": ["package.json", "build/**/*", "electron-starter.js"]
   }
 }
