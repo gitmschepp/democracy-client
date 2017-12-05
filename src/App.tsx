@@ -1,14 +1,57 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
+
+const instructions = Platform.select({
+  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
+  android:
+    "Double tap R on your keyboard to reload,\n" +
+    "Shake or press menu button for dev menu",
+  web: "Live Realoading is enabled"
+});
+
+const welcomePlatform = () => {
+  switch (Platform.OS) {
+    case "web":
+      return `Welcome to React for Web!`;
+    default:
+      return `Welcome to React Native!`;
+  }
+};
 
 class App extends React.Component {
   render() {
     return (
-      <View>
-        <Text>hallo Demokratie</Text>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>{welcomePlatform()}</Text>
+        <Text style={styles.instructions}>To get started, edit App.tsx</Text>
+        <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10
+  },
+  instructions: {
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
+  },
+  image: {
+    height: 40,
+    marginVertical: 10,
+    width: 40
+  }
+});
 
 export default App;
