@@ -14,8 +14,10 @@
     "clean": "rimraf build/dist",
     "build": "npm run clean && npm run tsc --",
     "watch": "npm run build -- -w",
-    "start:iosts": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'",
-    "start:androidts": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'"
+    "start:iosts":
+      "npm run build && concurrently -r \"npm run watch\" \"react-native run-ios\"",
+    "start:androidts":
+      "npm run build && concurrently -r \"npm run watch\" \"react-native run-android\""
   },
   "dependencies": {
     "react": "16.0.0",
