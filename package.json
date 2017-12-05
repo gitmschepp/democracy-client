@@ -13,7 +13,6 @@
     "start:web": "react-scripts start",
     "build:web": "react-scripts build",
     "eject:web": "react-scripts eject",
-    "start:electron": "electron .",
     "start:desktop":
       "cross-env ELECTRON_START_URL=http://localhost:3000 electron .",
     "dist":
